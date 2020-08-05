@@ -1,0 +1,5 @@
+telegram==0.0.1
+lxml
+python-telegram-bot
+requests
+beautifulsoup4
