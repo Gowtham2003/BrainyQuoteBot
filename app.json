@@ -1,0 +1,19 @@
+{
+  "name": "BrainyQuotes",
+  "description": "Bot That Gives Quotes from Brainy Quotes",
+  "keywords": [
+    "telegram",
+    "best",
+    "indian",
+    "python-telegram-bot",
+    "quotes",
+    "productivity"
+  ],
+  "repository": "https://github.com/Gowtham2003/BrainyQuoteBot",
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Set Your Bot Token Here",
+      "value": "BOT_TOKEN"
+    }
+  }
+}

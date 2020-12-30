@@ -40,7 +40,7 @@ python3 bot.py
 ```
 1. Create Your Bot From Botfather and Copy The Bot Token 
 
-2. Replace Your Bot Token in  [bot.py file](./bot.py)
+2. Create New Env Variable Called "BOT_TOKEN" and Place your token in it 
 
 3. Your Bot is Ready to Host. 
 ```
@@ -48,6 +48,8 @@ python3 bot.py
 
  `Make sure You have Changed Your Bot Token Before Hosting It`
 
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Gowtham2003/BrainyQuoteBot/tree/master)
 
 
 ### Licence
