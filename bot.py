@@ -29,17 +29,6 @@ def unknown(update, context):
 
 def quote(update,context):
 
-# if the User Is not A Member of The Channel 
-# Bot will not work
-# Uncomment to Implement This Feature
-#   user=context.bot.get_chat_member(chat_id='-1001497612811',user_id=update.message.chat_id)
-#   mem = user["status"]
-#   if(mem=='left'):
-#       notinChannel = """
-#To use to bot you need to be a member of @AlphaProjects in order to stay updated with the latest developments.
-#"""
-#        context.bot.send_message(chat_id=update.message.chat_id,text=notinChannel)
-#        return
     chat_id = update.message.chat_id
     if update.message:  # your bot can receive updates without messages
             # Reply to the message
@@ -51,13 +40,7 @@ def quote(update,context):
 
 
 def start(update,context):
-    inf = context.bot.get_chat_member(chat_id='-1001497612811',user_id=update.message.chat_id)
-    user = inf["user"]
-    first_name = user['first_name']
-    last_name = user['last_name']
-    if last_name is None:
-        last_name = " "
-    name =f"Hi! {first_name} {last_name} "
+    name = "Hello! " + update.message.from_user["first_name"]
     context.bot.send_message(chat_id=update.effective_chat.id,text=name)
 
     welcome = """
@@ -71,8 +54,6 @@ Join @AlphaProjects for More Projects and Updates
 """
     context.bot.send_message(chat_id=update.effective_chat.id,text=
 welcome)
-#   cht = telegram.Bot.get_chat_member("-1001497612811",chat_id,timeout=None)
-    user=context.bot.get_chat_member(chat_id='-1001497612811',user_id=update.message.chat_id)
 
 
 def help(update,context):
