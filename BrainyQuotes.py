@@ -17,17 +17,26 @@ def getQuotes(query):
 
     try:
         soup = bs(requests.get(url).content, "lxml")
-    except AssertionError as er:
-        print(er)
+        
+    except:
         quotesDictionary["success"] = False
+        return quotesDictionary
 
-    divs = soup.findAll("div", {"class": "qll-bg"})
+    divs = soup.findAll("div",class_="m-brick grid-item boxy bqQt r-width")
 
     for div in divs:
         try:
-            quote = div.find("a", {"title": "view quote"}).text
+            try:
+                image = BASE_URL +  div.find("img", {"class": "bqphtgrid"}).get("data-img-url")
+            except:
+                image = BASE_URL +  div.find("img", {"class": "bqphtgrid"}).get("src")
+        except:
+            image = ""
+        try:
+            quote = div.find("img", {"class": "bqphtgrid"}).get("alt")
         except:
             quote = ""
+            
         try:
             quotelink = BASE_URL + \
                 div.find("a", {"title": "view quote"}).get("href")
@@ -45,7 +54,7 @@ def getQuotes(query):
 
         try:
             tagsElement = div.findAll(
-                "a", {"class": "qkw-btn btn btn-xs oncl_list_kc"})
+                "a", {"class": "qkw-btn btn btn-xs oncl_klc"})
         except:
             tagsElement = []
         tags = []
@@ -57,13 +66,15 @@ def getQuotes(query):
             "quotelink": quotelink,
             "author": author,
             "authorlink": authorlink,
-            "tags": tags
+            "tags": tags,
+            "quoteImage":image
         }
 
         quotesDictionary["data"].append(QuoteContent)
-    dt = quotesDictionary["data"]
-    ran = random.randint(0,len(dt)-1)
-    data = dt[ran]
-    return data
+
+        dt = quotesDictionary["data"]
+        ran = random.randint(0,len(dt)-1)
+        data = dt[ran]
+        return data
 
     print(quotesDictionary)
