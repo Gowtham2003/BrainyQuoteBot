@@ -4,6 +4,7 @@ import logging
 logging.basicConfig(level=logging.WARNING)
 import telegram
 from BrainyQuotes import getQuotes
+import os
 
 
 def get_quote(query):
@@ -106,7 +107,7 @@ Contact Me :
     context.bot.send_message(chat_id=update.effective_chat.id,text=donate )
 
 def main():
-    updater = Updater('BOT_TOKEN_HERE', use_context=True)
+    updater = Updater(os.environ.get("BOT_TOKEN", ""), use_context=True)
     dp = updater.dispatcher
     start_handler = CommandHandler("start",start)
     dp.add_handler(start_handler)
