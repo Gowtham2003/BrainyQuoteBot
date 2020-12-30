@@ -15,10 +15,12 @@ def get_quote(query):
     author = data["author"]
     qt_link = data["quotelink"]
     auth_link = data["authorlink"]
+    quoteImage = data["quoteImage"]
 
     message = f"{quote} \n {author}"
+    dataDict = {"message":message,"img":quoteImage}
 
-    return message
+    return dataDict
 
 
 def unknown(update, context):
@@ -41,7 +43,9 @@ def quote(update,context):
     if update.message:  # your bot can receive updates without messages
             # Reply to the message
             query = update.message.text
-            context.bot.send_message(chat_id=update.effective_chat.id,parse_mode=telegram.ParseMode.MARKDOWN, text=str(get_quote(query)))
+            data = get_quote(query)
+            context.bot.send_message(chat_id=update.effective_chat.id,parse_mode=telegram.ParseMode.MARKDOWN, text=str(data["message"]))
+            context.bot.sendPhoto(chat_id=update.effective_chat.id,photo=data["img"])
 
 
 
