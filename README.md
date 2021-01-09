@@ -1,4 +1,4 @@
-#BrainyQuoteBot
+# BrainyQuoteBot
 Quote Bot for Telegram
 
 
