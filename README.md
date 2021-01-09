@@ -3,7 +3,7 @@
 
 ---
 
-An Unofficial Brainy Quotes API Which Fetches Quotes from Brainy Quotes .
+Quote Bot For Telegram
 
 ---
 
