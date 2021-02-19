@@ -8,7 +8,7 @@ import random
 def getQuotes(query):
     BASE_URL = "https://www.brainyquote.com/"
 
-    url = f"https://www.brainyquote.com/topics/{query}-quotes"
+    url = f"https://www.brainyquote.com/topics/{query.strip().replace(" ","-")}-quotes"
 
     quotesDictionary = {
         "success": True,
